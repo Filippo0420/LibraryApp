@@ -14,12 +14,18 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="1">
+        <DataGrid x:Name="dataGridView" Grid.Row="1">
             
         </DataGrid>
-        <Button Grid.Row="2" Width="70" Height="30" Margin="10,10,10,10"
+        <Button x:Name="connectDatabase" Grid.Row="2" Width="70" Height="30" Margin="10,10,10,10"
                 HorizontalAlignment="Right" Click="Button_Click">
             Connect
         </Button>
+        <Button x:Name="showData" Grid.Row="2" Width="70" Height="30" Margin="10,10,100,10"
+                HorizontalAlignment="Right" Click="showData_Click">
+            Show
+        </Button>
     </Grid>
 </Window>
+
+    

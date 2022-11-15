@@ -31,5 +31,12 @@ namespace LibraryApp
             LoansDAO loanDAO = new LoansDAO();
             loanDAO.connectToDatabase();
         }
+
+        private void showData_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerDAO customerDAO = new CustomerDAO();
+
+            dataGridView.ItemsSource = customerDAO.getAllCustomers();
+        }
     }
 }
