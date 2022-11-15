@@ -10,9 +10,9 @@ namespace LibraryApp.DAO
 {
     class LoansDAO
     {
-        void connectToDatabase()
+        public void connectToDatabase()
         {
-            String str = "Server=localhost\\SQLEXPRESS2019;Integrated Security=True;Database=StudentsDatabase";
+            String str = "Server=localhost\\SQLEXPRESS2019;Integrated Security=True;Database=LibraryAppDatabase";
 
             SqlConnection con = new SqlConnection(str);
             try

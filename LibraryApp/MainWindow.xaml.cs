@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibraryApp.DAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace LibraryApp
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            LoansDAO loanDAO = new LoansDAO();
+            loanDAO.connectToDatabase();
         }
     }
 }

@@ -7,8 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <DataGrid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="1">
             
         </DataGrid>
+        <Button Grid.Row="2" Width="70" Height="30" Margin="10,10,10,10"
+                HorizontalAlignment="Right" Click="Button_Click">
+            Connect
+        </Button>
     </Grid>
 </Window>
