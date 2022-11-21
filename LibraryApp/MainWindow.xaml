@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Icon="/BookLogo.jpg">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5"/>
@@ -26,20 +26,38 @@
                     </Grid.RowDefinitions>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Title:" Margin="10, 10, 0, 10"/>
-                        <TextBox x:Name="TitleSearch" Width="100" Margin="0,10,0,10"/>
+                        <TextBox x:Name="TitleSearch" Width="100" Margin="0,10,0,10" FontSize="16"/>
                         <Label Content="Author:" Margin="10, 10, 0, 10"/>
-                        <TextBox x:Name="AuthorSearch" Width="100" Margin="0,10,0,10"/>
+                        <TextBox x:Name="AuthorSearch" Width="100" Margin="0,10,0,10" FontSize="16"/>
                         <Label Content="Genre:" Margin="10, 10, 0, 10"/>
-                        <TextBox x:Name="GenreSearch" Width="100"  Margin="0,10,10,10">
+                        <TextBox x:Name="GenreSearch" Width="100"  Margin="0,10,10,10" FontSize="16">
                         </TextBox>
-                        <Button x:Name="ShowDataBtn" Content="Show" Width="100" Margin="10,10,10,10" Click="ShowDataBtn_Click"/>
+                        <Button x:Name="ShowBookDataBtn" Content="Show" Width="80" Margin="10,10,10,10" Click="ShowBookDataBtn_Click"/>
+                        <Button x:Name="CreateBookBtn" Content="Add new Book" Width="auto" Margin="10,10,10,10" Click="CreateBookBtn_Click"/>
                     </StackPanel>
                     <DataGrid x:Name="ShowBookData" Grid.Row="1"/>
                 </Grid>
                 
             </TabItem>
             <TabItem Header="Customers">
-                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Name:" Margin="10, 10, 0, 10"/>
+                        <TextBox x:Name="NameSearch" Width="100" Margin="0,10,0,10" FontSize="16"/>
+                        <Label Content="Surname:" Margin="10, 10, 0, 10"/>
+                        <TextBox x:Name="SurnameSearch" Width="100" Margin="0,10,0,10" FontSize="16"/>
+                        <Label Content="Phone:" Margin="10, 10, 0, 10"/>
+                        <TextBox x:Name="PhoneSearch" Width="100"  Margin="0,10,10,10" FontSize="16">
+                        </TextBox>
+                        <Button x:Name="ShowCustomerDataBtn" Content="Show" Width="80" Margin="10,10,10,10" Click="ShowCustomerDataBtn_Click"/>
+                        <Button x:Name="CreateCustomerBtn" Content="Add new Customer" Width="auto" Margin="10,10,10,10" Click="CreateCustomerBtn_Click"/>
+                    </StackPanel>
+                    <DataGrid x:Name="ShowCustomerData" Grid.Row="1"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Loans">
                 

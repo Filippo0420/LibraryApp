@@ -117,5 +117,26 @@ namespace LibraryApp.DAO
 
             return books;
         }
+
+        public void create(Book book)
+        {
+            SqlConnection con = new SqlConnection(connString);
+
+            String query = $"INSERT INTO StudentsData (Name, Surname, Class) VALUES ('{book.Title}', '{book.Author}', '{book.Genre}')";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            SqlDataReader dbr;
+            try
+            {
+                con.Open();
+                dbr = cmd.ExecuteReader();
+            }
+            catch (Exception es)
+            {
+                MessageBox.Show(es.Message);
+            }
+            
+        }
     }
 }

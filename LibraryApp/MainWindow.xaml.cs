@@ -26,7 +26,30 @@ namespace LibraryApp
             InitializeComponent();
         }
 
-        private void ShowDataBtn_Click(object sender, RoutedEventArgs e)
+        private void ShowCustomerDataBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerDAO customerDAO = new CustomerDAO();
+            List<string> columns = new();
+            List<string> conditions = new();
+            if (NameSearch.Text != "")
+            {
+                columns.Add("Name");
+                conditions.Add(NameSearch.Text);
+            }
+            if (SurnameSearch.Text != "")
+            {
+                columns.Add("Surname");
+                conditions.Add(SurnameSearch.Text);
+            }
+            if (PhoneSearch.Text != "")
+            {
+                columns.Add("Phone");
+                conditions.Add(PhoneSearch.Text);
+            }
+            ShowCustomerData.ItemsSource = customerDAO.select(columns, conditions);
+        }
+
+        private void ShowBookDataBtn_Click(object sender, RoutedEventArgs e)
         {
             BookDAO bookDAO = new BookDAO();
             List<string> columns = new();
@@ -47,6 +70,16 @@ namespace LibraryApp
                 conditions.Add(GenreSearch.Text);
             }
             ShowBookData.ItemsSource = bookDAO.select(columns, conditions);
+        }
+
+        private void CreateBookBtn_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void CreateCustomerBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
