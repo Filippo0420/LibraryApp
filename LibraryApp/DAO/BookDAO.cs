@@ -67,13 +67,24 @@ namespace LibraryApp.DAO
             return books;
         }
 
-        public List<Book> select(string column, string condition)
+        public List<Book> select(List<string> column, List<string> condition)
         {
             List<Book> books = new List<Book>();
 
             SqlConnection con = new SqlConnection(connString);
-
-            String query = $"SELECT * FROM StudentsData WHERE {column} LIKE {condition}";
+            String query = $"SELECT * FROM BookTable ";
+            if(column.Count != 0)
+            {
+                query += "WHERE ";
+            }
+            for (int i = 0; i < column.Count; i++)
+            {
+                query += $"{column[i]} LIKE '{condition[i]}' ";
+                if(i < column.Count - 1)
+                {
+                    query += "AND ";
+                }
+            }
 
             SqlCommand cmd = new SqlCommand(query, con);
 

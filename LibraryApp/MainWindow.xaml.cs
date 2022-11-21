@@ -29,8 +29,24 @@ namespace LibraryApp
         private void ShowDataBtn_Click(object sender, RoutedEventArgs e)
         {
             BookDAO bookDAO = new BookDAO();
-
-            ShowBookData.ItemsSource = bookDAO.getAllBooks();
+            List<string> columns = new();
+            List<string> conditions = new();
+            if (TitleSearch.Text != "")
+            {
+                columns.Add("Title");
+                conditions.Add(TitleSearch.Text);
+            }
+            if (AuthorSearch.Text != "")
+            {
+                columns.Add("Author");
+                conditions.Add(AuthorSearch.Text);
+            }
+            if (GenreSearch.Text != "")
+            {
+                columns.Add("Genre");
+                conditions.Add(GenreSearch.Text);
+            }
+            ShowBookData.ItemsSource = bookDAO.select(columns, conditions);
         }
     }
 }
