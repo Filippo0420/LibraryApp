@@ -10,13 +10,12 @@ using System.Windows.Automation;
 
 namespace LibraryApp.DAO
 {
-    class CustomerDAO
+    class CustomerDAO : DAO
     {
+        
         public void connectToDatabase()
         {
-            String str = "Server=localhost\\SQLEXPRESS2019;Integrated Security=True;Database=LibraryAppDatabase";
-
-            SqlConnection con = new SqlConnection(str);
+            SqlConnection con = new SqlConnection(connString);
             try
             {
                 con.Open();
@@ -31,8 +30,8 @@ namespace LibraryApp.DAO
         public List<Customer> getAllCustomers()
         {
             List<Customer> customers = new List<Customer>();
-            String str = "Server=localhost\\SQLEXPRESS2019;Integrated Security=True;Database=LibraryAppDatabase";
-            SqlConnection con = new SqlConnection(str);
+
+            SqlConnection con = new SqlConnection(connString);
 
             String query = "SELECT * FROM CustomerTable";
 

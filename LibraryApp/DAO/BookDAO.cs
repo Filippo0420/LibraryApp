@@ -9,13 +9,14 @@ using static System.Reflection.Metadata.BlobBuilder;
 
 namespace LibraryApp.DAO
 {
-    class BookDAO
+    class BookDAO : DAO
     {
         public void connectToDatabase()
         {
-            String str = "Server=(localdb)\\MSSQLLocalDB;Integrated Security=True;Database=LibraryAppDatabase";
-
-            SqlConnection con = new SqlConnection(str);
+            String str = connString;
+                //"Server=(localdb)\\MSSQLLocalDB;Integrated Security=True;Database=LibraryAppDatabase";
+            
+            SqlConnection con = new SqlConnection(connString);
             try
             {
                 con.Open();
@@ -30,8 +31,8 @@ namespace LibraryApp.DAO
         public List<Book> getAllBooks()
         {
             List<Book> books = new List<Book>();
-            String str = "Server=(localdb)\\MSSQLLocalDB;Integrated Security=True;Database=LibraryAppDatabase";
-            SqlConnection con = new SqlConnection(str);
+
+            SqlConnection con = new SqlConnection(connString);
 
             String query = "SELECT * FROM BookTable";
 
@@ -70,9 +71,7 @@ namespace LibraryApp.DAO
         {
             List<Book> books = new List<Book>();
 
-            String str = "Server=localhost\\SQLEXPRESS2019;Integrated Security=True;Database=StudentsDatabase";
-
-            SqlConnection con = new SqlConnection(str);
+            SqlConnection con = new SqlConnection(connString);
 
             String query = $"SELECT * FROM StudentsData WHERE {column} LIKE {condition}";
 

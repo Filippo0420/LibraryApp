@@ -8,13 +8,11 @@ using System.Windows;
 
 namespace LibraryApp.DAO
 {
-    class LoansDAO
+    class LoansDAO : DAO
     {
         public void connectToDatabase()
         {
-            String str = "Server=localhost\\SQLEXPRESS2019;Integrated Security=True;Database=LibraryAppDatabase";
-
-            SqlConnection con = new SqlConnection(str);
+            SqlConnection con = new SqlConnection(connString);
             try
             {
                 con.Open();
