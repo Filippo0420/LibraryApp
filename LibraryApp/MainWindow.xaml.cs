@@ -26,17 +26,11 @@ namespace LibraryApp
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ShowDataBtn_Click(object sender, RoutedEventArgs e)
         {
-            LoansDAO loanDAO = new LoansDAO();
-            loanDAO.connectToDatabase();
-        }
+            BookDAO bookDAO = new BookDAO();
 
-        private void showData_Click(object sender, RoutedEventArgs e)
-        {
-            CustomerDAO customerDAO = new CustomerDAO();
-
-            dataGridView.ItemsSource = customerDAO.getAllCustomers();
+            ShowBookData.ItemsSource = bookDAO.getAllBooks();
         }
     }
 }

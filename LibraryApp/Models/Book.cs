@@ -8,9 +8,9 @@ namespace LibraryApp
 {
     class Book
     {
-        int Id { get; set; }
-        string Title { get; set; }
-        string Author { get; set; }
-        string Genre { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Author { get; set; }
+        public string Genre { get; set; }
     }
 }
